@@ -31,13 +31,11 @@ while True:
     if ball.check_ball_wall():
         ball.change_direction(0)
     else:
-        player1_pos = player1.get_cor_player()
-        player1_x = player1_pos[0]
-        player1_y = player1_pos[1]
+        player1_x = player1.xcor()
+        player1_y = player1.ycor()
 
-        player2_pos = player2.get_cor_player()
-        player2_x = player2_pos[0]
-        player2_y = player2_pos[1]
+        player2_x = player2.xcor()
+        player2_y = player2.ycor()
 
         if ball_x - 10 == player1_x and (70 >= player1_y - ball_y >= 0 or 70 >= ball_y - player1_y >= 0):
             ball.change_direction(1)

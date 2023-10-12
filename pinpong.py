@@ -1,7 +1,6 @@
 import turtle
 import time
-from pinpong_players import Player1
-from pinpong_players import Player2
+from pinpong_players import Player
 from pinpong_map import Map
 from pinpong_ball import Ball
 from pinpong_score import Score
@@ -13,8 +12,8 @@ window.setup(width=800, height=600)
 window.tracer(0)
 
 
-player1 = Player1()
-player2 = Player2()
+player1 = Player(-360)
+player2 = Player(360)
 _map = Map()
 ball = Ball()
 score = Score()
@@ -32,11 +31,11 @@ while True:
     if ball.check_ball_wall():
         ball.change_direction(0)
     else:
-        player1_pos = player1.get_cor_player1()
+        player1_pos = player1.get_cor_player()
         player1_x = player1_pos[0]
         player1_y = player1_pos[1]
 
-        player2_pos = player2.get_cor_player2()
+        player2_pos = player2.get_cor_player()
         player2_x = player2_pos[0]
         player2_y = player2_pos[1]
 
@@ -44,10 +43,10 @@ while True:
             ball.change_direction(1)
         elif ball_x + 10 == player2_x and (70 >= player2_y - ball_y >= 0 or 70 >= ball_y - player2_y >= 0):
             ball.change_direction(1)
-    if ball_x > 360:
+    if ball_x > 370:
         score.increase_scorel()
         ball.goto_start()
-    elif ball_x < -360:
+    elif ball_x < -370:
         score.increase_scorer()
         ball.goto_start()
 

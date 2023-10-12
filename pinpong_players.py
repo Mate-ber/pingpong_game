@@ -1,4 +1,5 @@
 import turtle
+import random
 
 
 class Player(turtle.Turtle):
@@ -18,3 +19,7 @@ class Player(turtle.Turtle):
     def change_down(self):
         if self.ycor() - 20 > -250:
             self.goto(self.xcor(), self.ycor() - 20)
+
+    def change_Ai(self, piv):
+        self.goto(self.xcor(), self.ycor() + (random.randint(1, 25) * piv))
+

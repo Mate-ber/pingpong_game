@@ -7,8 +7,6 @@ class Ball(turtle.Turtle):
         self.penup()
         self.shape("circle")
         self.color("white")
-        self.speed(0)
-        self.left(45)
         self.x_dir = 1
         self.y_dir = 1
 

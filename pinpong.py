@@ -17,16 +17,25 @@ player2 = Player(360)
 _map = Map()
 ball = Ball()
 score = Score()
-window.listen()
-window.onkeypress(player1.change_up, "Up")
-window.onkeypress(player1.change_down, "Down")
-window.onkeypress(player2.change_up, "w")
-window.onkeypress(player2.change_down, "s")
+# window.listen()
+# window.onkeypress(player1.change_up, "w")
+# window.onkeypress(player1.change_down, "s")
 
 while True:
     window.update()
     ball_x = ball.xcor()
     ball_y = ball.ycor()
+    if abs(player2.ycor() - ball_y) > 60:
+        if player2.ycor() > ball_y:
+            player2.change_Ai(-1)
+        else:
+            player2.change_Ai(1)
+    if abs(player1.ycor() - ball_y) > 60:
+        if player1.ycor() > ball_y:
+            player1.change_Ai(-1)
+        else:
+            player1.change_Ai(1)
+
     if ball.check_ball_wall():
         ball.change_direction(0)
     else:

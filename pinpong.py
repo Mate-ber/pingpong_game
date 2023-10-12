@@ -30,15 +30,9 @@ while True:
     if ball.check_ball_wall():
         ball.change_direction(0)
     else:
-        player1_x = player1.xcor()
-        player1_y = player1.ycor()
-
-        player2_x = player2.xcor()
-        player2_y = player2.ycor()
-
-        if ball_x - 10 == player1_x and (70 >= player1_y - ball_y >= 0 or 70 >= ball_y - player1_y >= 0):
+        if ball_x - 10 == player1.xcor() and (70 >= player1.ycor() - ball_y >= 0 or 70 >= ball_y - player1.ycor() >= 0):
             ball.change_direction(1)
-        elif ball_x + 10 == player2_x and (70 >= player2_y - ball_y >= 0 or 70 >= ball_y - player2_y >= 0):
+        elif ball_x + 10 == player2.xcor() and (70 >= player2.ycor() - ball_y >= 0 or 70 >= ball_y - player2.ycor() >= 0):
             ball.change_direction(1)
     if ball_x > 370:
         score.increase_scorel()

@@ -25,9 +25,8 @@ window.onkeypress(player2.change_down, "s")
 
 while True:
     window.update()
-    ball_pos = ball.pos_ball()
-    ball_x = ball_pos[0]
-    ball_y = ball_pos[1]
+    ball_x = ball.xcor()
+    ball_y = ball.ycor()
     if ball.check_ball_wall():
         ball.change_direction(0)
     else:
